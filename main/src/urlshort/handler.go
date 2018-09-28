@@ -23,8 +23,6 @@ func MapHandler(pathsToUrls map[string]string, fallback http.Handler) http.Handl
 			http.Redirect(w, r, url, 301)
 		}
 		fallback.ServeHTTP(w, r)
-		// fmt.Println(html.EscapeString(r.URL.Path))
-		// http.Redirect(w, r, "http://www.google.com", 301)
 	}
 }
 
@@ -78,7 +76,3 @@ func parsYaml(yml []byte) ([]map[string]string, error) {
 	}
 	return m, nil
 }
-
-// type T struct {
-// 	pathToUrl []map[string]string `yaml:,`
-// }
